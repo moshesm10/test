@@ -13,4 +13,6 @@
         $result = mysqli_query($link, $query) or die("2Ошибка " . mysqli_error($link)); 
         // close link
         mysqli_close($link);
+
+        print_r ($_POST);
         ?>
