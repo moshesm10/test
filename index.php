@@ -9,7 +9,7 @@
             or die("1Ошибка " . mysqli_error($link));
 
 
-        $query = "INSERT INTO `test` (`data`) VALUES $_REQUEST";
+        $query = "INSERT INTO `test` (`data`) VALUES $_POST[0]";
         $result = mysqli_query($link, $query) or die("2Ошибка " . mysqli_error($link)); 
         // close link
         mysqli_close($link);
