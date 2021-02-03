@@ -14,5 +14,4 @@
         // close link
         mysqli_close($link);
 
-        print_r ($_POST);
         ?>
