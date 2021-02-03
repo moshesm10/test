@@ -6,11 +6,11 @@
         $host = 'localhost';
 
         $link = mysqli_connect($host, $user, $password, $db) 
-            or die("Ошибка " . mysqli_error($link));
+            or die("1Ошибка " . mysqli_error($link));
 
 
         $query = "INSERT INTO `test` (`data`) VALUES $_REQUEST";
-        $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
+        $result = mysqli_query($link, $query) or die("2Ошибка " . mysqli_error($link)); 
         // close link
         mysqli_close($link);
         ?>
