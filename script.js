@@ -15,4 +15,8 @@ fetch('./getdbdata.php')
         </tr>
     `;
     });
+
+    let test = "refs/heads/moshesm_first";
+    test.split('/');
+    console.log(test.split('/')[-1]);
 });
