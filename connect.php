@@ -1,0 +1,10 @@
+<?php 
+
+    $user = 'a0413857_test';
+    $password = 'test';
+    $db = 'a0413857_test';
+    $host = 'localhost';
+    $link = mysqli_connect($host, $user, $password, $db) 
+            or die("1Ошибка " . mysqli_error($link));
+
+?>
