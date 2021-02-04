@@ -15,6 +15,4 @@ fetch('./getdbdata.php')
         </tr>
     `;
     });
-    
-    
 });
