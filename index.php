@@ -1,19 +1,26 @@
-        <?php 
-         
+<?php 
         $user = 'a0413857_test';
         $password = 'test';
         $db = 'a0413857_test';
         $host = 'localhost';
-
         $link = mysqli_connect($host, $user, $password, $db) 
             or die("1Ошибка " . mysqli_error($link));
 
-        $query = "INSERT INTO `test` (`data`) VALUES $_POST[0]";
+        // get hook
+        $json = json_decode(file_get_contents('php://input'), true);
+
+        $timestamp = $json['head_commit']['timestamp'];
+        $username = $json['head_commit']['committer']['username'];
+        $message = $json['head_commit']['message'];
+        $url = $json['head_commit']['url'];
+
+        $query = "INSERT INTO `test` (`timestamp`, 	`username`, `message`, `url`) 
+            VALUES ('$timestamp', '$username', '$message', '$url')";
         $result = mysqli_query($link, $query) or die("2Ошибка " . mysqli_error($link)); 
-        // close link
-
         mysqli_close($link);
-        $json = json_decode(file_get_contents("php://input"), true);
-        print_r($json);  
 
-        ?>
+        print_r($json['head_commit']['timestamp']);
+        print_r($json['head_commit']['committer']['username']);
+        print_r($json['head_commit']['message']);
+        print_r($json['head_commit']['url']);
+    ?>
