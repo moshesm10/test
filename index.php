@@ -19,6 +19,8 @@
         $result = mysqli_query($link, $query) or die("2Ошибка " . mysqli_error($link)); 
         mysqli_close($link);
 
+
+        echo 'Done!';
         print_r($json['head_commit']['timestamp']);
         print_r($json['head_commit']['committer']['username']);
         print_r($json['head_commit']['message']);
