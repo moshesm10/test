@@ -4,7 +4,7 @@
 
 На момент загрузки данных в карточках должен выводится анимационный индикатор загрузки (3 точки), взять его нужно тут [https://loading.io/css/](https://loading.io/css/).
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dfe9fd72-84a3-469a-aa3b-8f15335ed95e/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dfe9fd72-84a3-469a-aa3b-8f15335ed95e/Untitled.png)
+![https://s3.us-west-2.amazonaws.com/secure.notion-static.com/dfe9fd72-84a3-469a-aa3b-8f15335ed95e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210329%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210329T074355Z&X-Amz-Expires=86400&X-Amz-Signature=24bbda7349ec8d2e9a0d16df69b5e82feff4bb8a5eb632f3945d716cb051a7dc&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/dfe9fd72-84a3-469a-aa3b-8f15335ed95e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210329%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210329T074355Z&X-Amz-Expires=86400&X-Amz-Signature=24bbda7349ec8d2e9a0d16df69b5e82feff4bb8a5eb632f3945d716cb051a7dc&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 Для запроса и получения названия города на русском языке необходимо воспользоваться открытым API [Nominatim.openstreetmap.org](https://nominatim.org/release-docs/develop/api/Overview/), регистрация здесь не требуется.
 
