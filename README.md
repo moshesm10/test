@@ -1,71 +1,65 @@
-# Getting Started with Create React App
+## **Задание №3 – Реализация функционала приложения**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Получение данных погоды по API
 
-## Available Scripts
+На момент загрузки данных в карточках должен выводится анимационный индикатор загрузки (3 точки), взять его нужно тут [https://loading.io/css/](https://loading.io/css/).
 
-In the project directory, you can run:
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dfe9fd72-84a3-469a-aa3b-8f15335ed95e/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dfe9fd72-84a3-469a-aa3b-8f15335ed95e/Untitled.png)
 
-### `npm start`
+Для запроса и получения названия города на русском языке необходимо воспользоваться открытым API [Nominatim.openstreetmap.org](https://nominatim.org/release-docs/develop/api/Overview/), регистрация здесь не требуется.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```jsx
+`https://nominatim.openstreetmap.org/search.php?q=${query}&format=json&addressdetails=1&limit=1`
+// query — это значение формы ввода поиска
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Получаем данные погоды через API [OpenWeatherMap](https://openweathermap.org), необходимо авторизоваться и добавить свой ключ в код для запросов. Подробнее в [документации OpenWeatherMap](https://openweathermap.org/api/one-call-api) (для задания используете [One Call API](https://openweathermap.org/api/one-call-api)).
 
-### `npm test`
+```jsx
+`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=metric&lang=ru`
+// lat, lon – долгота и широта полученные из запроса к nominatim.openstreetmap.org
+// key – ключ полученный в OpenWeatherMap
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Таб меню переключения прогноза на неделю и на 12 часов
 
-### `npm run build`
+По нажатию на пункты меню **"на неделю"** или **"почасовой"** должны отображаться соответствующие карточки с погодой на день недели или погода на час.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Слайдер прогноза на неделю и на 12 часов
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Слева и справа от карточек должны быть кнопки прокрутки, по нажатию на кнопку карточки смещаются на 1 позицию.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+У кнопки должны быть состояния активности/неактивности.
 
-### `npm run eject`
+### Поиск города
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+В поле поиска города вводится запрос на русском языке.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Если по запросу ничего не пришло, то должен быть текст `"Не нашел такой город, попробуйте другой"`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Формат дат
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Формат дат на карточках погоды должен соответствовать макету – "Пн, 15 мар".
 
-## Learn More
+### Иконки погоды
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Иконки погоды на карточках и основной панели нужно получать по запросу к API.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Подробности в документации [API Openweathermap](https://openweathermap.org/api/one-call-api). Возможные размеры иконки в запросе: 2x (для плашек прогноза на день и на час), 4x (для боковой панели).
 
-### Code Splitting
+### Формат давления
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Давление должно быть выражено в миллиметрах ртутного столба.
 
-### Analyzing the Bundle Size
+### Индикатор направления ветра + аббревиатура направления
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Индикатор направления ветра должен поворачиваться на значение угла полученного из запроса к API Openweathermap.
 
-### Making a Progressive Web App
+Рядом с индикатором направления ветра выводится аббревиатура направления на русском языке. Необходимо конвертировать значение угла в текстовое представление.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```jsx
+// Массив направлений
+const directions = ['С', 'СВ', 'В', 'ЮВ', 'Ю', 'ЮЗ', 'З', 'СЗ'];
+```
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-### haha, it works
+**Результат задания** – Данные приходят из запросов API, таб меню переключает прогнозы на неделю и на 12 часов, слайдер прогноза прокручивает карточки по нажатию на кнопки, в результате поиска города отображается погода в данном городе, форматы данных соответствуют заданию, иконки погоды приходят по запросу к API и правильно выводятся, индикатор направления ветра вращается в зависимости от угла, выводится аббревиатура направления ветра.
