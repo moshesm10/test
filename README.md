@@ -69,4 +69,4 @@ const directions = ['С', 'СВ', 'В', 'ЮВ', 'Ю', 'ЮЗ', 'З', 'СЗ'];
 
 Если в результате запроса не было получено никаких данных, вместо карточек вакансий должен выводится текст `"С такими параметрами вакансий нет, попробуй другие"`
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42ba7955-e4d5-4ab4-ab16-e95f46c1b6e7/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42ba7955-e4d5-4ab4-ab16-e95f46c1b6e7/Untitled.png)
+![https://www.notion.so/22-04-2021-b9b0eb6b35bf4d0c839e9bc42a725467#f179d20e63544c7fbd39cb6a762aa78c](https://www.notion.so/22-04-2021-b9b0eb6b35bf4d0c839e9bc42a725467#f179d20e63544c7fbd39cb6a762aa78c)
